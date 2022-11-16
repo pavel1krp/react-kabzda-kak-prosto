@@ -1,0 +1,30 @@
+.ugol{
+    width: 200px;
+    height: 100px;
+    border: solid black 2px;
+    background-color: lightyellow;
+}
+.krug{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: solid black 2px;
+    background-color: lightyellow;
+}
+.krug.green{
+    background-color: green;
+}
+.ugol.green{
+    background-color: green;
+}
+.krug.red{
+    background-color: red;
+}
+.ugol.red{
+    background-color: red;
+}
+.OnOff{
+    display: flex;
+    gap: 20px;
+}
+
