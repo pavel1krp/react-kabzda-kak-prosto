@@ -33,8 +33,6 @@ const Star = (props: StarPropsType)=>{
     const onClickHandler =()=> {
         props.callBack(props.id)
     }
-    if(props.selected === true){
-        return <span onClick={onClickHandler}><b>star </b></span>
-    } return <span onClick={onClickHandler}>star </span>
-
+    return  props.selected === true? <span onClick={onClickHandler}><b>star </b></span>:
+ <span onClick={onClickHandler}>star </span>;
 }
