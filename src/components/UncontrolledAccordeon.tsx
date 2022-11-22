@@ -7,7 +7,7 @@ type UncontrolledAccordeonType = {
 const UncontrolledAccordeon = (props: UncontrolledAccordeonType) => {
     const [collapsed,setCollapsed] = useState(false) ;
     const onclickHandler =() =>{
-        collapsed? setCollapsed(false): setCollapsed(true)
+         setCollapsed(!collapsed)
     }
     return (
         <div>
