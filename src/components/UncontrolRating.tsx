@@ -5,7 +5,7 @@ type RatingPropstype = {
     callBack: (num: number) => void
 }
 
-const Rating = () => {
+const UncontrolRating = () => {
     const [value, setValue] = useState(0)
     const handler = (num: number) => {
         setValue(num)
@@ -21,18 +21,17 @@ const Rating = () => {
     );
 };
 
-export default Rating;
+export default UncontrolRating;
 
 type StarPropsType = {
     selected: boolean,
     callBack: (num: number) => void
-    id: number;
+    id: 0|1|3|4|5|2;
 }
 
 const Star = (props: StarPropsType) => {
     const onClickHandler = () => {
         props.callBack(props.id)
     }
-    return props.selected === true ? <span onClick={onClickHandler}><b>star </b></span> :
-        <span onClick={onClickHandler}>star </span>;
+    return <span onClick={onClickHandler}>{props.selected? <b>star </b>: 'star '}</span>;
 }

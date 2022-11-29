@@ -24,7 +24,8 @@ function App() {
     }
   return (
     <div >
-     {/*<Accordeon titleValue={'priv'} collapsed={false}/>*/}
+     {/* <Accordeon titleValue={'priv'} collapsed={false}/>
+     <Accordeon titleValue={'priv'} collapsed={true}/> */}
         <UncontrolledAccordeon titleValue={'Accordeon'}/>
         <OffOn on={false}/>
         <OffOn on={false}/>
