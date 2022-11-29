@@ -4,19 +4,20 @@ import s from './OnOff.module.css'
 
 type OnOffpropsType = {
     on: boolean;
+    onClick: ()=>void
 }
 
 
 
-export const OffOn =(props: OnOffpropsType) =>{
-    const  [on,setOn] = useState(false)
+export const ControledOffOn =(props: OnOffpropsType) =>{
+
     const onStyle ={
         width: '30px',
         height:'30px',
         border:'1px solid black',
         display: 'inline-block',
         padding:'2px',
-        backgroundColor: on? 'green': 'white'
+        backgroundColor:props.on? 'green': 'white'
     }
     const offStyle ={
         width: '30px',
@@ -24,7 +25,7 @@ export const OffOn =(props: OnOffpropsType) =>{
         border:'1px solid black',
         display: 'inline-block',
         padding:'2px',
-        backgroundColor: on? "white": 'red'
+        backgroundColor: props.on? "white": 'red'
     }
     const indicatorStyle ={
         width: '30px',
@@ -33,14 +34,14 @@ export const OffOn =(props: OnOffpropsType) =>{
         display: 'inline-block',
         marginLeft: '5px',
         marginRight: '5px',
-        backgroundColor: on? 'green': 'red'
+        backgroundColor: props.on? 'green': 'red'
     }
     // const mouseClickHandler =()=>{
     //     setOn(true)
     // }
     return(<>
-        {<div onClick={()=>setOn(true)} style={onStyle} >On</div>}
-            {<div onClick={()=>setOn(false)} style={offStyle}>Off</div>}
+        {<div onClick={()=>props.onClick()} style={onStyle} >On</div>}
+            {<div onClick={()=>props.onClick()} style={offStyle}>Off</div>}
         <div style={indicatorStyle}>Ind</div>
         </>
     )
