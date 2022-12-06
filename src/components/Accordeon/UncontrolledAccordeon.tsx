@@ -2,30 +2,27 @@ import React, { useState } from 'react';
 
 type UncontrolledAccordeonType = {
     titleValue: string,
-    // collapsed: boolean,
+    collapsed: boolean,
 }
 
 const UncontrolledAccordeon = (props: UncontrolledAccordeonType) => {
 
-    const [collapsed, setCollapsed] = useState(false)
-
     return (
         <div>
-            <AccoredeonTitle title={props.titleValue} onclick ={()=>{setCollapsed(!collapsed)}}/>
-            {!collapsed && <UncontrolledAccordeonBody/>}
+            <AccoredeonTitle title={props.titleValue}/>
+            {props.collapsed && <UncontrolledAccordeonBody/>}
         </div>
     )
 }
 
 
 type UncontrolledAccordeonTitleType = {
-    title: string;
-    onclick: ()=>void
+    title: string
 }
 
 const AccoredeonTitle = (props: UncontrolledAccordeonTitleType) => {
     return (
-        <h3 onClick={()=>props.onclick()}>{props.title}</h3>
+        <h3 >{props.title}</h3>
     );
 }
 

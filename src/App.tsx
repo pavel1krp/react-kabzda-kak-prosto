@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import './App.css';
-import Accordeon from "./components/Accordeon";
-import {OffOn} from "./components/OnOff";
-import UncontrolledAccordeon from "./components/UncontrolledAccordeon";
-import Rating, {RatingValueType} from "./components/Rating";
-import UncontrolRating from "./components/UncontrolRating";
-import RandomNumber from "./components/RandomNymber";
-import {ControledOffOn} from "./components/ControledOnOff";
+import Accordeon from "../src/components/Accordeon/Accordeon";
+import {OffOn} from "../src/components/OnOff/OnOff";
+import UncontrolledAccordeon from "../src/components/Accordeon/UncontrolledAccordeon";
+import Rating, {RatingValueType} from "../src/components/Rating/Rating";
+import UncontrolRating from "../src/components/Rating/UncontrolRating";
+import {ControledOffOn} from "../src/components/OnOff/ControledOnOff";
 
 
 function App() {
@@ -28,13 +27,14 @@ function App() {
   return (
     <div >
       <Accordeon titleValue={'priv'} collapsed={collapsedAccordeon} onClick ={()=>setcollapsedAccordeon(!collapsedAccordeon)}/>
-        <UncontrolledAccordeon titleValue={'Accordeon'}/>
-        <OffOn on={false}/>
-        <OffOn on={false}/>
+        <UncontrolledAccordeon titleValue={'Accordeon'} collapsed={true}/>
+        <UncontrolledAccordeon titleValue={'AccordeonUncotrol'} collapsed={false}/>
+        <OffOn onChange={setOn}/>
+        <OffOn onChange={setOn}/>
         <Rating value={ratingValue} onClick = {setRatingValue}/>
-        <UncontrolRating />
-        <RandomNumber getNumber={getNumber} getNumber1={getNumber1} num={num} getRandomNumber = {getRandomNumber} number = {number}/>
+        <UncontrolRating value={1}/>
         <ControledOffOn on={on} onClick={()=>setOn(!on)}/>
+        <OffOn onChange={setOn}/> {on.toString()}
     </div>
   ) ;
 }

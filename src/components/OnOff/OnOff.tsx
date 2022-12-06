@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import s from './OnOff.module.css'
 
 type OnOffpropsType = {
-    on: boolean;
+    onChange: (on:boolean)=> void
 }
 
 
@@ -38,9 +38,17 @@ export const OffOn =(props: OnOffpropsType) =>{
     // const mouseClickHandler =()=>{
     //     setOn(true)
     // }
+    const onClicked =()=>{
+        setOn(true)
+        props.onChange(true)
+    }
+    const ofClicked =()=>{
+        setOn(false)
+        props.onChange(false)
+    }
     return(<>
-        {<div onClick={()=>setOn(true)} style={onStyle} >On</div>}
-            {<div onClick={()=>setOn(false)} style={offStyle}>Off</div>}
+        {<div onClick={onClicked} style={onStyle} >On</div>}
+            {<div onClick={ofClicked} style={offStyle}>Off</div>}
         <div style={indicatorStyle}>Ind</div>
         </>
     )
