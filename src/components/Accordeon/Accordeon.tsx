@@ -1,9 +1,16 @@
 import React from 'react';
 
+type ItemType = {
+    title: string
+    value: any
+}
+
+
 type AccordeonType = {
     titleValue: string,
     collapsed: boolean,
-    onClick: ()=>void
+    onClick: (value:number)=>void
+    items: Array<ItemType>
 }
 
 const Accordeon = (props: AccordeonType) => {
@@ -11,7 +18,7 @@ const Accordeon = (props: AccordeonType) => {
     return (
         <div>
             <AccoredeonTitle title={props.titleValue} onClick={props.onClick} col={props.collapsed} />
-            {!props.collapsed && <AccordeonBody/>}
+            {!props.collapsed && <AccordeonBody onclick={props.onClick} items={props.items}/>}
         </div>
     )
 }
@@ -29,12 +36,23 @@ const AccoredeonTitle = (props: AccordeonTitleType) => {
     );
 }
 
-const AccordeonBody = () => {
+type  BodyPropsType = {
+    items: ItemType[]
+    onclick:(value:number)=>void
+}
+
+const AccordeonBody = (props:BodyPropsType) => {
+
     return (
         <ul>
-            <li>1</li>
-            <li>12</li>
-            <li>123</li>
+            {props.items.map((el, index)=>{
+                const onClickHandler =()=>{
+                    props.onclick(el.value)
+                }
+                return (
+                    <li onClick={onClickHandler} key={el.value}>{el.title}</li>
+                )
+            })}
         </ul>
     )
 }

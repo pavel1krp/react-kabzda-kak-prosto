@@ -26,13 +26,13 @@ function App() {
     const [ratingValue, setRatingValue]= useState<RatingValueType>(2)
   return (
     <div >
-      <Accordeon titleValue={'priv'} collapsed={collapsedAccordeon} onClick ={()=>setcollapsedAccordeon(!collapsedAccordeon)}/>
+      {/*<Accordeon items={['213','sa']} titleValue={'priv'} collapsed={collapsedAccordeon} onClick ={()=>setcollapsedAccordeon(!collapsedAccordeon)}/>*/}
         <UncontrolledAccordeon titleValue={'Accordeon'} collapsed={true}/>
         <UncontrolledAccordeon titleValue={'AccordeonUncotrol'} collapsed={false}/>
         <OffOn onChange={setOn}/>
         <OffOn onChange={setOn}/>
         <Rating value={ratingValue} onClick = {setRatingValue}/>
-        <UncontrolRating value={1}/>
+        <UncontrolRating />
         <ControledOffOn on={on} onClick={()=>setOn(!on)}/>
         <OffOn onChange={setOn}/> {on.toString()}
     </div>
