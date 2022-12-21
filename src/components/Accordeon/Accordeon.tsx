@@ -11,13 +11,14 @@ type AccordeonType = {
     collapsed: boolean,
     onClick: (value:number)=>void
     items: Array<ItemType>
+    setCollapsed:()=>void
 }
 
 const Accordeon = (props: AccordeonType) => {
 
     return (
         <div>
-            <AccoredeonTitle title={props.titleValue} onClick={props.onClick} col={props.collapsed} />
+            <AccoredeonTitle title={props.titleValue} onClick={props.setCollapsed} col={props.collapsed} />
             {!props.collapsed && <AccordeonBody onclick={props.onClick} items={props.items}/>}
         </div>
     )
